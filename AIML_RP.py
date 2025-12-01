@@ -1,8 +1,7 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
-data = pd.read_csv(r"C:\Users\chamo\OneDrive\Desktop\coding\Python\Stock.csv")   # contains Open, High, Low, Close, Volume
-# Create Trend label: UP if next day's close > today's close
+data = pd.read_csv(r"C:\Users\chamo\OneDrive\Desktop\coding\Python\Stock.csv")
 data['Trend'] = (data['Close'].shift(-1) > data['Close']).astype(int)
 features = ['Open', 'High', 'Low', 'Close', 'Volume']
 X = data[features][:-1]
